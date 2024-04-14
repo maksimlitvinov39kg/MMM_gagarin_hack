@@ -3,7 +3,6 @@ import pathlib
 import typing as tp
 
 import final_solution
-import final_solution.solution_stupid
 
 
 PATH_TO_TEST_DATA = pathlib.Path("data") / "test_texts.json"

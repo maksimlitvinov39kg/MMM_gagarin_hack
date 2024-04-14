@@ -1,6 +1,5 @@
 import typing as tp
-
-
+from funcs import *
 EntityScoreType = tp.Tuple[int, float]  # (entity_id, entity_score)
 MessageResultType = tp.List[
     EntityScoreType
@@ -8,18 +7,8 @@ MessageResultType = tp.List[
 #    for example, [(entity_id, entity_score) for entity_id, entity_score in entities_found]
 
 
-def score_texts(
-    messages: tp.Iterable[str], *args, **kwargs
-) -> tp.Iterable[MessageResultType]:
-    """
-    Main function (see tests for more clarifications)
-    Args:
-        messages (tp.Iterable[str]): any iterable of strings (utf-8 encoded text messages)
-
-    Returns:
-        tp.Iterable[tp.Tuple[int, float]]: for any messages returns MessageResultType object
-    -------
-    Clarifications:
-    >>> assert all([len(m) < 10 ** 11 for m in messages]) # all messages are shorter than 2048 characters
-    """
-    raise NotImplementedError
+def score_texts(messages):
+    scores = []
+    for message in messages:
+        scores.append(get_all_from_text(message))
+    return scores
